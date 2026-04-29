@@ -1,4 +1,8 @@
-{% extends "account/base_entrance.html" %}
+
+{% extends "base.html" %}
+{% load i18n %}
+{% load static %}
+
 {% load i18n %}
 {% load allauth account %}
 {% block head_title %}
@@ -54,8 +58,9 @@
     {% endif %}
 {% endblock content %}
 {% block extra_body %}
-    {{ block.super }}
+    
     {% if PASSKEY_LOGIN_ENABLED %}
         {% include "mfa/webauthn/snippets/login_script.html" with button_id="passkey_login" %}
     {% endif %}
+
 {% endblock %}
